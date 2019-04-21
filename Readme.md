@@ -3,6 +3,11 @@
 Rust and C are like father and son. One is destined to replace the other. They have their share of similarities but are not quite the same.
 This repo aims to provide a simple proof of concept of compiling Rust code to a dylib/so file and loading it inside C.
 
+## Was has been done
+
+1. Pass a double and get a double
+2. Define a struct in C/Rust, pass it from C to Rust, change it in Rust and print it back in C
+
 # Why?
 
 1. I want to know how
