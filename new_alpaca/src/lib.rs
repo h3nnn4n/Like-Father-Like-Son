@@ -1,13 +1,14 @@
 use std::f64;
-use libc::{c_int, c_double};
+use libc::{c_int, c_float, c_double};
 
 extern crate libc;
 
 #[repr(C)]
 pub struct c_foo_struct {
-    pub a:c_double,
-    pub b:c_double,
-    pub i:c_int,
+    pub a: c_double,
+    pub b: c_double,
+    pub i: c_int,
+    pub array: [c_float; 2],
 }
 
 #[no_mangle]
@@ -23,6 +24,8 @@ pub fn change_struct(mut stuff: *mut c_foo_struct) {
         (*stuff).a = 1.0;
         (*stuff).b = 2.0;
         (*stuff).i = 3;
+        (*stuff).array[0] = 4.0;
+        (*stuff).array[1] = 5.0;
     }
 }
 

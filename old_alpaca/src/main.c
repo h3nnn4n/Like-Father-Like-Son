@@ -7,6 +7,7 @@ typedef struct
   double a;
   double b;
   int i;
+  float array[2];
 } foo;
 
 int main(int argc, char **argv)
@@ -16,8 +17,8 @@ int main(int argc, char **argv)
   void (*change_struct)(foo *);
   char *error;
 
-  foo bar;
-  printf("before: %6.2f %6.2f %3d\n", bar.a, bar.b, bar.i);
+  foo bar = {0.0, 0.0, 0};
+  printf("before: %6.2f %6.2f %3d %6.2f %6.2f\n", bar.a, bar.b, bar.i, bar.array[0], bar.array[1]);
 
   handle = dlopen("libnew_alpaca.dylib", RTLD_LAZY);
   if (!handle)
@@ -42,7 +43,7 @@ int main(int argc, char **argv)
 
   (*change_struct)(&bar);
 
-  printf(" after: %6.2f %6.2f %3d\n", bar.a, bar.b, bar.i);
+  printf(" after: %6.2f %6.2f %3d %6.2f %6.2f\n", bar.a, bar.b, bar.i, bar.array[0], bar.array[1]);
 
   printf("cos(2.0) = %f\n", (*cosine)(2.0));
   dlclose(handle);
