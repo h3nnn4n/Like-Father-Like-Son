@@ -8,6 +8,7 @@ This repo aims to provide a simple proof of concept of compiling Rust code to a 
 1. Pass a double and get a double
 2. Define a struct in C/Rust, pass it from C to Rust, change it in Rust and print it back in C
 3. Write into an array from C
+4. Malloc memory inside Rust, initialize it and pass it back to C
 
 # Why?
 
